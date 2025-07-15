@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",                         // Целевая версия JS
+    "module": "commonjs",                       // Модульная система
+    "outDir": "./dist",                         // Папка для скомпилированных файлов
+    "rootDir": "./src",                         // Исходная папка
+    "strict": true,                             // Включить строгий режим
+    "esModuleInterop": true,                    // Совместимость с ES модулями
+    "skipLibCheck": true,                       // Пропуск проверки типов библиотек
+    "forceConsistentCasingInFileNames": true,  // Постоянство регистра в именах файлов
+    "resolveJsonModule": true,                  // Разрешить импорт JSON
+    "isolatedModules": true,                    // Для совместимости с Babel
+    "noEmit": false,                            // Не запрещать вывод
+    "incremental": true                         // Быстрый повторный компилятор
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}
