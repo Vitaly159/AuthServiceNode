@@ -41,15 +41,19 @@ export async function authenticateUser(
   accessToken: string;
   refreshToken: string;
 } | null> {
-  const user: any = await getUserByEmail(email);
+  const user = await getUserByEmail(email);
   if (!user) {
-    return null; // пользователь не найден
+    throw new Error("Invalid user");
+  }
+
+  if (!user.isActive) {
+    throw new Error("Invalid user"); // пользователь неактивен
   }
 
   const isPasswordValid = await validatePassword(user, password);
 
   if (!isPasswordValid) {
-    return null; // неправильный пароль
+    throw new Error("Invalid password");; // неправильный пароль
   }
 
   const accessToken = generateAccessToken(user);
